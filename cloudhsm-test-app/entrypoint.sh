@@ -1,10 +1,10 @@
 #!/bin/sh
 
 #The below variables have been removed for security
-export HSM_USER=$(aws --region=eu-west-2 ssm get-parameter --name "" --with-decryption --output text --query Parameter.Value  --no-verify-ssl  )
-export HSM_PASSWORD=$(aws --region=eu-west-2 ssm get-parameter --name "" --with-decryption --output text --query Parameter.Value  --no-verify-ssl  )
+export HSM_USER=$(aws --region=eu-west-2 ssm get-parameter --name "hsmcuuser" --with-decryption --output text --query Parameter.Value  --no-verify-ssl  )
+export HSM_PASSWORD=$(aws --region=eu-west-2 ssm get-parameter --name "hsmcupw" --with-decryption --output text --query Parameter.Value  --no-verify-ssl  )
 export S3_BUCKET=""
-export KEYSTORE_PASSWORD=""
+export KEYSTORE_PASSWORD=$(aws --region=eu-west-2 ssm get-parameter --name "hsmcupw" --with-decryption --output text --query Parameter.Value  --no-verify-ssl  )
 #####
 
 function connect_cloudhsm(){
