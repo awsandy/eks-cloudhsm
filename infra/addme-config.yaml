@@ -1,0 +1,6 @@
+data:
+  mapUsers: |
+    - userarn: arn:aws:iam::566972129213:role/eksworkshop-admin  
+      username: cloud9
+      groups:
+        - system:masters
