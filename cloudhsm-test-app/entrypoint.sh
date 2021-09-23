@@ -49,8 +49,8 @@ connect_cloudhsm
 
 echo "security.provider.13=com.cavium.provider.CaviumProvider" >> $JAVA_HOME/conf/security/java.security
 
-sudo mkdir -p /usr/java/packages/lib
-sudo ln -s /opt/cloudhsm/lib/libcaviumjca.so /usr/java/packages/lib/libcaviumjca.so
+#sudo mkdir -p /usr/java/packages/lib
+#sudo ln -s /opt/cloudhsm/lib/libcaviumjca.so /usr/java/packages/lib/libcaviumjca.so
 
 java -classpath "/opt/cloudhsm/java/*" org.junit.runner.JUnitCore TestBasicFunctionality
 
