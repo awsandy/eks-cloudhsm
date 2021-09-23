@@ -5,7 +5,6 @@ COPY entrypoint.sh .
 COPY startdaemon.sh .
 
 
-
 # Set startup script permissions
 RUN chmod +x entrypoint.sh && chmod +x startdaemon.sh
 

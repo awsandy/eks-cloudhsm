@@ -48,7 +48,17 @@ unset HSM_PASSWORD
 connect_cloudhsm
 
 echo "security.provider.13=com.cavium.provider.CaviumProvider" >> $JAVA_HOME/conf/security/java.security
-aws s3 cp s3://$S3_BUCKET/hsm-keystore.p12 .
-keytool -list -v -keystore /hsm-keystore.p12 -storepass "$KEYSTORE_PASSWORD" -storetype CLOUDHSM -J-classpath '-J/opt/cloudhsm/java/*' -J-Djava.library.path=/opt/cloudhsm/lib
+
+sudo mkdir -p /usr/java/packages/lib
+sudo ln -s /opt/cloudhsm/lib/libcaviumjca.so /usr/java/packages/lib/libcaviumjca.so
+
+java -classpath "/opt/cloudhsm/java/*" org.junit.runner.JUnitCore TestBasicFunctionality
+
+keytool -genseckey -alias my_secret -keyalg aes -storepass "$HSM_PASSWORD" \
+        -keysize 256 -keystore my_keystore.store \
+        -storetype CLOUDHSM -J-classpath '-J/opt/cloudhsm/java/*' \
+        -J-Djava.library.path=/opt/cloudhsm/lib/
+
+keytool -list -v -keystore my_keystore.store -storepass "$HSM_PASSWORD" -storetype CLOUDHSM -J-classpath '-J/opt/cloudhsm/java/*' -J-Djava.library.path=/opt/cloudhsm/lib
 
 tail -f /dev/null
