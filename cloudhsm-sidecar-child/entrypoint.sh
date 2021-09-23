@@ -19,7 +19,7 @@ HSM_IP=$(aws cloudhsmv2 describe-clusters --filters clusterIds=$cid --query "Clu
 /opt/cloudhsm/bin/configure -a "${HSM_IP}"
 
 # Download CloudHSM CA 
-aws --region=eu-west-2 ssm get-parameter --name "" --with-decryption --output text --query Parameter.Value --no-verify-ssl > /opt/cloudhsm/etc/customerCA.crt
+aws --region=eu-west-2 ssm get-parameter --name "hsm-customerca-crt" --with-decryption --output text --query Parameter.Value --no-verify-ssl > /opt/cloudhsm/etc/customerCA.crt
 
 export HSM_USER="admin"
 export HSM_PASSWORD=$(aws --region=eu-west-2 ssm get-parameter --name "hsmpw" --with-decryption --output text --query Parameter.Value)
