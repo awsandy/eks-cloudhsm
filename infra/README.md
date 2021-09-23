@@ -54,7 +54,7 @@ E2E enabled on server 0(192.168.125.125)
 aws-cloudhsm>loginHSM PRECO admin password
 loginHSM success on server 0(192.168.125.125)
 
-changePswd PRECO admin <newpw>
+changePswd PRECO admin <newpw>   ea!
 
 aws-cloudhsm>logout
 logoutHSM success on server 0(192.168.125.125)
@@ -97,4 +97,47 @@ Command: exit
 
 
 Put HSM on 1a private
+
+------
+
+
+export HSM_PARTITION=PARTITION_1
+export HSM_USER=$(aws --region=eu-west-2 ssm get-parameter --name "hsmcuuser" --with-decryption --output text --query Parameter.Value  --no-verify-ssl  )
+export HSM_PASSWORD=$(aws --region=eu-west-2 ssm get-parameter --name "hsmcupw" --with-decryption --output text --query Parameter.Value  --no-verify-ssl  )
+
+
+wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL7/cloudhsm-client-jce-latest.el7.x86_64.rpm
+sudo yum install ./cloudhsm-client-jce-latest.el7.x86_64.rpm
+
+sudo mkdir -p /usr/java/packages/lib
+sudo ln -s /opt/cloudhsm/lib/libcaviumjca.so /usr/java/packages/lib/libcaviumjca.so
+
+
+java -classpath "/opt/cloudhsm/java/*" org.junit.runner.JUnitCore TestBasicFunctionality
+<output>
+JUnit version 4.11
+.2021-09-23 13:36:46,583 DEBUG [main] TestBasicFunctionality (TestBasicFunctionality.java:33) - Adding provider.
+2021-09-23 13:36:46,688 DEBUG [main] TestBasicFunctionality (TestBasicFunctionality.java:42) - Logging in.
+2021-09-23 13:36:46,689 INFO  [main] cfm2.LoginManager (LoginManager.java:238) - Looking for credentials in HsmCredentials.properties
+2021-09-23 13:36:46,691 INFO  [main] cfm2.LoginManager (LoginManager.java:256) - Looking for credentials in System.properties
+2021-09-23 13:36:46,694 INFO  [main] cfm2.LoginManager (LoginManager.java:264) - Looking for credentials in System.env
+2021-09-23 13:36:46,771 DEBUG [main] TestBasicFunctionality (TestBasicFunctionality.java:54) - Generating AES Key with key size 256.
+2021-09-23 13:36:46,799 DEBUG [main] TestBasicFunctionality (TestBasicFunctionality.java:63) - Encrypting with AES Key.
+2021-09-23 13:36:46,808 DEBUG [main] TestBasicFunctionality (TestBasicFunctionality.java:84) - Deleting AES Key.
+2021-09-23 13:36:46,809 DEBUG [main] TestBasicFunctionality (TestBasicFunctionality.java:92) - Logging out.
+
+
+
+keytool -genseckey -alias my_secret -keyalg aes -storepass $HSM_PASSWORD \
+        -keysize 256 -keystore my_keystore.store \
+        -storetype CLOUDHSM -J-classpath '-J/opt/cloudhsm/java/*' \
+        -J-Djava.library.path=/opt/cloudhsm/lib/
+
+
+
+
+
+
+Command: findKey 
+(see numner of keys going up)
 
