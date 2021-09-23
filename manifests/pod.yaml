@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cloudhsm-test
+spec:
+  serviceAccountName: cloudhsm-svcacct-role
+  restartPolicy: Never
+  shareProcessNamespace: true
+
+  volumes:
+  - name: opt-cloudhsm
+    emptyDir: {}
+
+  containers:
+  - name: application
+    image: ##Test App Image##
+    volumeMounts:
+    - name: opt-cloudhsm
+      mountPath: /opt/cloudhsm
+
+  - name: cloudhsm-client-sidecar
+    image: ##CloudHSM Sidecar Child Image##
+    volumeMounts:
+    - name: opt-cloudhsm
+      mountPath: /opt/cloudhsm

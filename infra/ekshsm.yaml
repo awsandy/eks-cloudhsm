@@ -1,0 +1,50 @@
+# A simple example of ClusterConfig object:
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: ekshsm
+  region: eu-west-2
+  version: "1.21"
+availabilityZones: ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+managedNodeGroups:
+  - name: ng-1
+    instanceType: t3.small
+    desiredCapacity: 1
+    minSize: 1
+    maxSize: 3
+    privateNetworking: true    
+    ssh:
+      allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
+    labels: { role: workers }
+    preBootstrapCommands:
+      # allow docker registries to be deployed as cluster service
+      - "yum update -y"
+      - "yum install -y amazon-ssm-agent"
+      - "systemctl enable amazon-ssm-agent && systemctl start amazon-ssm-agent"
+    iam:
+      withAddonPolicies:
+        ebs: true
+        efs: true
+        albIngress: true
+        autoScaler: true
+        cloudWatch: true
+    
+
+cloudWatch:
+    clusterLogging:
+        # enable specific types of cluster control plane logs
+        enableTypes: ["all"]
+        # all supported types: "api", "audit", "authenticator", "controllerManager", "scheduler"
+        # supported special values: "*" and "all"
+vpc:
+  autoAllocateIPv6: false
+  # disable public access to endpoint and only allow private access
+  clusterEndpoints:
+    publicAccess: true
+  nat:
+    gateway: Single # other options: Disable, Single (default),HighlyAvailable
+
+
+    
