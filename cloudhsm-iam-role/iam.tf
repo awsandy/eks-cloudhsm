@@ -3,18 +3,11 @@ data "aws_iam_policy_document" "cloudhsm_serviceaccount_assume" {
     actions = [
       "sts:AssumeRoleWithWebIdentity",
     ]
-    condition {
-      test     = "StringEquals"
-      variable = data.terraform_remote_state.cluster.outputs.cluster.oidc.subject
-      values = [
-        "system:serviceaccount:*:${format(module.account.resource_name.format, "cloudhsm-svcacct-role")}"
-      ]
-    }
     
     principals {
       type = "Federated"
       identifiers = [
-        data.terraform_remote_state.cluster.outputs.cluster.oidc.arn,
+          "arn:aws:iam::566972129213:oidc-provider/oidc.eks.eu-west-2.amazonaws.com/id/A648AC06C6D3361510EDAD12C9408957"
       ]
     }
   }
@@ -24,33 +17,15 @@ data "aws_iam_policy_document" "cloudhsm_serviceaccount_document" {
   statement {
     sid    = "keystore"
     effect = "Allow"
-
-    actions = [
-      "s3:GetObject",
-    ]
-
-    resources = ["arn:aws:s3:::hsm-keystore/hsm-keystore.p12"]
-  }
-
-  statement {
-    sid    = "clusterparameters"
-    effect = "Allow"
-
-    actions = [
-      "ssm:GetParameter",
-    ]
-
-    resources = ["arn:aws:ssm:eu-west-2:${module.account.id}:parameter/mgmt/cloudhsm/*"]
+    actions = [ "*",]
+    resources = ["*"]
   }
 }
 
 resource "aws_iam_role" "cloudhsm_serviceaccount_role" {
-  name               = format(module.account.resource_name.format, "cloudhsm-svcacct-role")
+  name               =  "cloudhsm-svcacct-role"
   assume_role_policy = data.aws_iam_policy_document.cloudhsm_serviceaccount_assume.json
 
-  tags = merge(module.account.tags, {
-    Name = format(module.account.tag_name.format, "CLOUDHSM-SVCACCT-ROLE")
-  })
 
   lifecycle {
     ignore_changes = [
@@ -60,8 +35,7 @@ resource "aws_iam_role" "cloudhsm_serviceaccount_role" {
 }
 
 resource "aws_iam_role_policy" "cloudhsm_serviceaccount_policy" {
-  name   = format(module.account.resource_name.format, "cloudhsm-svc-acct-policy")
+  name   = "cloudhsm-svc-acct-policy"
   role   = aws_iam_role.cloudhsm_serviceaccount_role.id
   policy = data.aws_iam_policy_document.cloudhsm_serviceaccount_document.json
-
 }

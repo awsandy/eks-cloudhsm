@@ -10,7 +10,7 @@ ENV HSM_PARTITION=PARTITION_1
 ENV JAVA_HOME="/usr/bin"
 
 # Install dependencies
-RUN yum install -y wget unzip java-11-openjdk which
+RUN yum install -y wget unzip java-11-openjdk which jq nmap
 
 # Download CloudHSM Client and JCE Provider, these will be installed at run time as they need to reside on a volume created by k8s so they can be shared.
 RUN wget https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-client-latest.el8.x86_64.rpm

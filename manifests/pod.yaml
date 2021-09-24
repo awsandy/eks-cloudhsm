@@ -13,13 +13,13 @@ spec:
 
   containers:
   - name: application
-    image: ##Test App Image##
+    image: 566972129213.dkr.ecr.eu-west-2.amazonaws.com/cloudhsm-test-app
     volumeMounts:
     - name: opt-cloudhsm
       mountPath: /opt/cloudhsm
 
   - name: cloudhsm-client-sidecar
-    image: ##CloudHSM Sidecar Child Image##
+    image: 566972129213.dkr.ecr.eu-west-2.amazonaws.com/cloudhsm-sidecar-child
     volumeMounts:
     - name: opt-cloudhsm
       mountPath: /opt/cloudhsm

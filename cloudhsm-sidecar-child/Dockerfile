@@ -10,7 +10,7 @@ RUN chmod +x entrypoint.sh && chmod +x startdaemon.sh
 
 RUN chown -R cloudhsm:cloudhsm /cloudhsm && chmod -R 755 /cloudhsm
 
-USER cloudhsm
+#USER cloudhsm
 
 # Run entrypoint script
 ENTRYPOINT [ "./entrypoint.sh" ]
