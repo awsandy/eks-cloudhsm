@@ -47,7 +47,8 @@ EOF
 }
 
 connect_cloudhsm
-
+echo  "local ls"
+ls
 echo "security.provider.13=com.cavium.provider.CaviumProvider" >> $JAVA_HOME/conf/security/java.security
 tail -1 $JAVA_HOME/conf/security/java.security
 ls /opt/cloudhsm
@@ -57,14 +58,16 @@ ls /opt/cloudhsm/etc
 #sudo ln -s /opt/cloudhsm/lib/libcaviumjca.so /usr/java/packages/lib/libcaviumjca.so
 echo "creds= $HSM_USER / $HSM_PASSWORD / $HSM_PARTITION"
 
+echo "ls /opt/cloudhsm/lib/libcaviumjca*"
+ls /opt/cloudhsm/lib/libcaviumjca*
 echo "Java Unit Test"
 java -classpath "/opt/cloudhsm/java/*" org.junit.runner.JUnitCore TestBasicFunctionality
-
-keytool -genseckey -alias my_secret -keyalg aes -storepass "$HSM_PASSWORD" \
-        -keysize 256 -keystore my_keystore.store \
-        -storetype CLOUDHSM -J-classpath '-J/opt/cloudhsm/java/*' \
-        -J-Djava.library.path=/opt/cloudhsm/lib/
-
+echo "Keytools"
 keytool -list -v -keystore my_keystore.store -storepass "$HSM_PASSWORD" -storetype CLOUDHSM -J-classpath '-J/opt/cloudhsm/java/*' -J-Djava.library.path=/opt/cloudhsm/lib
+
+#keytool -genseckey -alias my_secret -keyalg aes -storepass "$HSM_PASSWORD" \
+#        -keysize 256 -keystore my_keystore.store \
+#        -storetype CLOUDHSM -J-classpath '-J/opt/cloudhsm/java/*' \
+#        -J-Djava.library.path=/opt/cloudhsm/lib/
 
 tail -f /dev/null
