@@ -1,0 +1,819 @@
+{
+  "version": "1.0",
+  "engine": "darwin|Transformer|1.37.0|latest|latest",
+  "containerized": false,
+  "host_distro": {
+    "name": "",
+    "version": "",
+    "display_name": "Catalina (10.15.6)"
+  },
+  "type": "build",
+  "state": "done",
+  "target_reference": "alpine-base:latest",
+  "system": {
+    "type": "Linux",
+    "release": "5.10.47-linuxkit",
+    "distro": {
+      "name": "Alpine Linux",
+      "version": "3.12.3",
+      "display_name": "Alpine Linux v3.12"
+    }
+  },
+  "source_image": {
+    "identity": {
+      "id": "sha256:a559fab277da8eae834f9ccf02df062adfcdd9fc6666cbc32309abd6f155f951",
+      "tags": [
+        "latest"
+      ],
+      "names": [
+        "alpine-base:latest"
+      ]
+    },
+    "size": 686262534,
+    "size_human": "686 MB",
+    "create_time": "2021-09-26T15:54:24Z",
+    "docker_version": "",
+    "architecture": "amd64",
+    "os": "linux",
+    "env_vars": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "AWS_DEFAULT_REGION=eu-west-2",
+      "LD_LIBRARY_PATH=/opt/cloudhsm/lib",
+      "HSM_PARTITION=PARTITION_1",
+      "JAVA_HOME=/usr/bin",
+      "GLIBC_VER=2.34-r0",
+      "PYTHON_PATH=/usr/bin/python3"
+    ],
+    "container_entry": {
+      "exe_path": ""
+    }
+  },
+  "minified_image_size": 1441723,
+  "minified_image_size_human": "1.4 MB",
+  "minified_image": "alpine-base.slim",
+  "minified_image_has_data": true,
+  "minified_by": 476.00165496423375,
+  "artifact_location": "/tmp/docker-slim-state/.docker-slim-state/images/a559fab277da8eae834f9ccf02df062adfcdd9fc6666cbc32309abd6f155f951/artifacts",
+  "container_report_name": "creport.json",
+  "seccomp_profile_name": "alpine-base-seccomp.json",
+  "apparmor_profile_name": "alpine-base-apparmor-profile",
+  "image_stack": [
+    {
+      "is_top_image": true,
+      "id": "sha256:a559fab277da8eae834f9ccf02df062adfcdd9fc6666cbc32309abd6f155f951",
+      "full_name": "alpine-base:latest",
+      "repo_name": "alpine-base",
+      "version_tag": "latest",
+      "raw_tags": [
+        "alpine-base:latest"
+      ],
+      "create_time": "2021-09-26T15:54:24Z",
+      "new_size": 686262534,
+      "new_size_human": "686 MB",
+      "instructions": [
+        {
+          "type": "ADD",
+          "time": "2020-12-17T00:19:41Z",
+          "is_nop": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 5577287,
+          "size_human": "5.6 MB",
+          "params": "file:ec475c2abb2d46435286b5ae5efacf5b50b1a9e3b6293b69db3c0172b5b9658b in /",
+          "command_snippet": "ADD file:ec475c2abb2d46435286b5ae5efacf5b50b...",
+          "command_all": "ADD file:ec475c2abb2d46435286b5ae5efacf5b50b1a9e3b6293b69db3c0172b5b9658b /",
+          "target": "/",
+          "source_type": "file"
+        },
+        {
+          "type": "CMD",
+          "time": "2020-12-17T00:19:42Z",
+          "is_nop": true,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "params": "[\"/bin/sh\"]",
+          "command_snippet": "CMD [\"/bin/sh\"]",
+          "command_all": "CMD [\"/bin/sh\"]"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 322103837,
+          "size_human": "322 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"add\",\"--no-...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"add\",\"--no-cache\",\"sudo\",\"wget\",\"unzip\",\"which\",\"jq\",\"nmap\",\"curl\",\"rpm\",\"libarchive-tools\",\"openjdk11\",\"ncurses-libs\",\"json-c\",\"binutils\",\"shadow\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"add\",\"--no-cache\",\"sudo\",\"wget\",\"unzip\",\"which\",\"jq\",\"nmap\",\"curl\",\"rpm\",\"libarchive-tools\",\"openjdk11\",\"ncurses-libs\",\"json-c\",\"binutils\",\"shadow\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"NEWUSER=cloudhsm\"...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"NEWUSER=cloudhsm\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"NEWUSER=cloudhsm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 4657,
+          "size_human": "4.7 kB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"adduser\",\"-D\",\"-s...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"adduser\",\"-D\",\"-s\",\"/bin/sh\",\"cloudhsm\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"adduser\",\"-D\",\"-s\",\"/bin/sh\",\"cloudhsm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"WORKDIR\",\"/cloudhsm\"]",
+          "command_all": "RUN [\"WORKDIR\",\"/cloudhsm\"]",
+          "system_commands": [
+            "[\"WORKDIR\",\"/cloudhsm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ENV\",\"AWS_DEFAULT_REGION=eu-west-2\"]",
+          "command_all": "RUN [\"ENV\",\"AWS_DEFAULT_REGION=eu-west-2\"]",
+          "system_commands": [
+            "[\"ENV\",\"AWS_DEFAULT_REGION=eu-west-2\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ENV\",\"LD_LIBRARY_PATH=/opt/cloudhsm/li...",
+          "command_all": "RUN [\"ENV\",\"LD_LIBRARY_PATH=/opt/cloudhsm/lib\"]",
+          "system_commands": [
+            "[\"ENV\",\"LD_LIBRARY_PATH=/opt/cloudhsm/lib\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ENV\",\"HSM_PARTITION=PARTITION_1\"]",
+          "command_all": "RUN [\"ENV\",\"HSM_PARTITION=PARTITION_1\"]",
+          "system_commands": [
+            "[\"ENV\",\"HSM_PARTITION=PARTITION_1\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ENV\",\"JAVA_HOME=/usr/bin\"]",
+          "command_all": "RUN [\"ENV\",\"JAVA_HOME=/usr/bin\"]",
+          "system_commands": [
+            "[\"ENV\",\"JAVA_HOME=/usr/bin\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:11Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"/var/c...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"/var/cache/apk/*\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"/var/cache/apk/*\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:14Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 1623883,
+          "size_human": "1.6 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"wget\",\"https://s3...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"wget\",\"https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-client-latest.el8.x86_64.rpm\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"wget\",\"https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-client-latest.el8.x86_64.rpm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:17Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 2747411,
+          "size_human": "2.7 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"wget\",\"https://s3...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"wget\",\"https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-client-jce-latest.el8.x86_64.rpm\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"wget\",\"https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-client-jce-latest.el8.x86_64.rpm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:17Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"pwd\"]",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"pwd\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"pwd\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:17Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ENV\",\"GLIBC_VER=2.34-r0\"]",
+          "command_all": "RUN [\"ENV\",\"GLIBC_VER=2.34-r0\"]",
+          "system_commands": [
+            "[\"ENV\",\"GLIBC_VER=2.34-r0\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:18Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 14,
+          "size_human": "14 B",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"http...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub\",\"-o\",\"/etc/apk/keys/sgerrand.rsa.pub\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub\",\"-o\",\"/etc/apk/keys/sgerrand.rsa.pub\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:18Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 1940882,
+          "size_human": "1.9 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sLO\",\"htt...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sLO\",\"https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.34-r0/glibc-2.34-r0.apk\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sLO\",\"https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.34-r0/glibc-2.34-r0.apk\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:19Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 1120265,
+          "size_human": "1.1 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sLO\",\"htt...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sLO\",\"https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.34-r0/glibc-bin-2.34-r0.apk\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sLO\",\"https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.34-r0/glibc-bin-2.34-r0.apk\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:20Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 7391340,
+          "size_human": "7.4 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"add\",\"--all...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"add\",\"--allow-untrusted\",\"--no-cache\",\"glibc-2.34-r0.apk\",\"glibc-bin-2.34-r0.apk\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"add\",\"--allow-untrusted\",\"--no-cache\",\"glibc-2.34-r0.apk\",\"glibc-bin-2.34-r0.apk\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:22Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 44410083,
+          "size_human": "44 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"http...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\",\"-o\",\"awscliv2.zip\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\",\"-o\",\"awscliv2.zip\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:24Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 146544340,
+          "size_human": "146 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"unzip\",\"-q\",\"awsc...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"unzip\",\"-q\",\"awscliv2.zip\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"unzip\",\"-q\",\"awscliv2.zip\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:25Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 146470549,
+          "size_human": "146 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"aws/install\"]",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"aws/install\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"aws/install\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:28:26Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"awscli...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"awscliv2.zip\",\"aws\",\"/usr/local/aws-cli/v2/*/dist/aws_completer\",\"/usr/local/aws-cli/v2/*/dist/awscli/data/ac.index\",\"/usr/local/aws-cli/v2/*/dist/awscli/examples\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"awscliv2.zip\",\"aws\",\"/usr/local/aws-cli/v2/*/dist/aws_completer\",\"/usr/local/aws-cli/v2/*/dist/awscli/data/ac.index\",\"/usr/local/aws-cli/v2/*/dist/awscli/examples\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:31:55Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"glibc-2.34-r...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"glibc-2.34-r0.apk\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"glibc-2.34-r0.apk\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:31:55Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"glibc-bin-2....",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"glibc-bin-2.34-r0.apk\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"glibc-bin-2.34-r0.apk\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:31:55Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"ln\",\"-s\",\"$(which...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"ln\",\"-s\",\"$(which\",\"awscliv2)\",\"/usr/bin/aws\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"ln\",\"-s\",\"$(which\",\"awscliv2)\",\"/usr/bin/aws\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:31:56Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"aws\",\"--version\"]",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"aws\",\"--version\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"aws\",\"--version\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:31:58Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 1623883,
+          "size_human": "1.6 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"http...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-client-3.4.0-1.el8.x86_64.rpm\",\"-o\",\"hsmc.rpm\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"curl\",\"-sL\",\"https://s3.amazonaws.com/cloudhsmv2-software/CloudHsmClient/EL8/cloudhsm-client-3.4.0-1.el8.x86_64.rpm\",\"-o\",\"hsmc.rpm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:31:58Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"ls\"]",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"ls\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"ls\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:31:59Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"tar\"]",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"tar\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"tar\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T09:31:59Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"WORKDIR\",\"/\"]",
+          "command_all": "RUN [\"WORKDIR\",\"/\"]",
+          "system_commands": [
+            "[\"WORKDIR\",\"/\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:19Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 4493217,
+          "size_human": "4.5 MB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"/usr/bin/bsdtar\",...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"/usr/bin/bsdtar\",\"-xvf\",\"/cloudhsm/hsmc.rpm\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"/usr/bin/bsdtar\",\"-xvf\",\"/cloudhsm/hsmc.rpm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:20Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"ls\",\"/opt/cloudhs...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"ls\",\"/opt/cloudhsm\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"ls\",\"/opt/cloudhsm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:20Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 1414,
+          "size_human": "1.4 kB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"addgroup\",\"-g\",\"1...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"addgroup\",\"-g\",\"1999\",\"hsmuser\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"addgroup\",\"-g\",\"1999\",\"hsmuser\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:20Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 4887,
+          "size_human": "4.9 kB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"adduser\",\"-u\",\"19...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"adduser\",\"-u\",\"1999\",\"-G\",\"hsmuser\",\"-h\",\"/opt/cloudhsm\",\"-D\",\"hsmuser\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"adduser\",\"-u\",\"1999\",\"-G\",\"hsmuser\",\"-h\",\"/opt/cloudhsm\",\"-D\",\"hsmuser\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:21Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"ls\",\"/etc/securit...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"ls\",\"/etc/security/limits.d\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"ls\",\"/etc/security/limits.d\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:21Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 29,
+          "size_human": "29 B",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"-e\",\"#n#  ...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"-e\",\"#n#  DO NOT EDIT THIS FILEn#\",\"\\u003e\",\"/etc/security/limits.d/cloudhsm.conf\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"-e\",\"#n#  DO NOT EDIT THIS FILEn#\",\"u003e\",\"/etc/security/limits.d/cloudhsm.conf\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:21Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 57,
+          "size_human": "57 B",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"hsmuser  s...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"hsmuser  soft  nofile  3000\",\"\\u003e\\u003e\",\"/etc/security/limits.d/cloudhsm.conf\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"hsmuser  soft  nofile  3000\",\"u003eu003e\",\"/etc/security/limits.d/cloudhsm.conf\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:22Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 85,
+          "size_human": "85 B",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"hsmuser  h...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"hsmuser  hard  nofile  3000\",\"\\u003e\\u003e\",\"/etc/security/limits.d/cloudhsm.conf\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"echo\",\"hsmuser  hard  nofile  3000\",\"u003eu003e\",\"/etc/security/limits.d/cloudhsm.conf\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:22Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"chgrp\",\"hsmuser\",...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"chgrp\",\"hsmuser\",\"/opt/cloudhsm\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"chgrp\",\"hsmuser\",\"/opt/cloudhsm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:22Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ENV\",\"PYTHON_PATH=/usr/bin/python3\"]",
+          "command_all": "RUN [\"ENV\",\"PYTHON_PATH=/usr/bin/python3\"]",
+          "system_commands": [
+            "[\"ENV\",\"PYTHON_PATH=/usr/bin/python3\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:22Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 12090,
+          "size_human": "12 kB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"sed\",\"-i\",\"1s|.*|...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"sed\",\"-i\",\"1s|.*|#!${PYTHON_PATH}|\",\"/opt/cloudhsm/bin/configure\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"sed\",\"-i\",\"1s|.*|#!${PYTHON_PATH}|\",\"/opt/cloudhsm/bin/configure\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:23Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 18016,
+          "size_human": "18 kB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"sed\",\"-i\",\"1s|.*|...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"sed\",\"-i\",\"1s|.*|#!${PYTHON_PATH}|\",\"/opt/cloudhsm/bin/client_info\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"sed\",\"-i\",\"1s|.*|#!${PYTHON_PATH}|\",\"/opt/cloudhsm/bin/client_info\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:24Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 174032,
+          "size_human": "174 kB",
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"--no-cache\"...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"--no-cache\",\"del\",\"binutils\",\"curl\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"apk\",\"--no-cache\",\"del\",\"binutils\",\"curl\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:24Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"/var/c...",
+          "command_all": "RUN [\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"/var/cache/apk/*\"]",
+          "system_commands": [
+            "[\"RUN\",\"/bin/sh\",\"-c\",\"rm\",\"-rf\",\"/var/cache/apk/*\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:24Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"WORKDIR\",\"/cloudhsm\"]",
+          "command_all": "RUN [\"WORKDIR\",\"/cloudhsm\"]",
+          "system_commands": [
+            "[\"WORKDIR\",\"/cloudhsm\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:24Z",
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": false,
+          "layer_index": 0,
+          "size": 276,
+          "size_human": "276 B",
+          "command_snippet": "RUN [\"COPY\",\"entrypoint.sh\",\".\"]",
+          "command_all": "RUN [\"COPY\",\"entrypoint.sh\",\".\"]",
+          "system_commands": [
+            "[\"COPY\",\"entrypoint.sh\",\".\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "type": "RUN",
+          "time": "2021-09-26T15:54:24Z",
+          "is_last_instruction": true,
+          "is_nop": false,
+          "is_exec_form": true,
+          "local_image_exists": true,
+          "layer_index": 0,
+          "size": 0,
+          "command_snippet": "RUN [\"ENTRYPOINT\",\"[./entrypoint.sh]\"]",
+          "command_all": "RUN [\"ENTRYPOINT\",\"[./entrypoint.sh]\"]",
+          "system_commands": [
+            "[\"ENTRYPOINT\",\"[./entrypoint.sh]\"]"
+          ],
+          "comment": "buildkit.dockerfile.v0",
+          "raw_tags": [
+            "alpine-base:latest"
+          ]
+        }
+      ]
+    }
+  ]
+}
