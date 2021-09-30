@@ -1,9 +1,9 @@
-kubectl delete -f pod.yaml
+kubectl delete -f pod-efs.yaml
 cd ../cloudhsm-sidecar-base
 ./push-ecr.sh
-cd ../cloudhsm-sidecar-child
+cd ../efs-sidecar-child
 ./push-ecr.sh
-cd ../cloudhsm-test-app
+cd ../efs-test-app
 ./push-ecr.sh
 cd ../manifests
-kubectl apply -f pod.yaml
+kubectl apply -f pod-efs.yaml
