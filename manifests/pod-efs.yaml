@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cloudhsm-test
+spec:
+  serviceAccountName: cloudhsm-svcacct-role
+  restartPolicy: Never
+  shareProcessNamespace: true
+
+  volumes:
+  - name: opt-cloudhsm
+    persistentVolumeClaim:
+      claimName: efs-storage-claim
+
+  containers:
+  - name: application
+    image: 566972129213.dkr.ecr.eu-west-2.amazonaws.com/efs-test-app
+    volumeMounts:
+    - name: opt-cloudhsm
+      mountPath: /opt/cloudhsm
+
+  - name: cloudhsm-client-sidecar
+    image: 566972129213.dkr.ecr.eu-west-2.amazonaws.com/efs-sidecar-child
+    volumeMounts:
+    - name: opt-cloudhsm
+      mountPath: /opt/cloudhsm
