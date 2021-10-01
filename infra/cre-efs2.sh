@@ -8,4 +8,3 @@ sed -i "s/EFS_VOLUME_ID/$FILE_SYSTEM_ID/g" efs-pvc.yaml
 kubectl apply -f efs-pvc.yaml
 kubectl get pvc
 kubectl get pv
-
